@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { ArrowRight, Play, Users, Award, Zap, BookOpen, Settings, Drone } from "lucide-react";
+import { ArrowRight, Play, Users, Award, Zap, BookOpen, Settings, Plane } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -25,7 +25,7 @@ const Index = () => {
     {
       title: "Drone Training & Aeromodeling",
       description: "Professional drone flying lessons and repair workshops, teaching kids the exciting world of aviation technology.",
-      icon: <Drone className="h-8 w-8" />,
+      icon: <Plane className="h-8 w-8" />,
       color: "from-orange-500 to-red-600",
       features: ["Flight Training", "Repair Workshops", "Safety Protocols", "Certification Prep"]
     }

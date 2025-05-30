@@ -32,7 +32,7 @@ const TestimonialsSection = () => {
             What Our Students Say
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Real stories from students and parents who have experienced the CogniBot Robo difference
+            Real stories from students and parents who have experienced the CogniBot difference
           </p>
         </div>
 

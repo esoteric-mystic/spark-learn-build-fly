@@ -8,11 +8,12 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
-                <Settings className="h-6 w-6 text-white" />
+              <div className="w-10 h-10 bg-gradient-to-r from-white-500 to-cyan-500 rounded-xl flex items-center justify-center">
+                <img src="/favicon.png" alt="CogniBot Logo" className="h-10 w-10" />
+                {/* <Settings className="h-6 w-6 text-white" /> */}
               </div>
               <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                CogniBot Robo
+                COGNIBOT
               </span>
             </div>
             <p className="text-gray-400 leading-relaxed">

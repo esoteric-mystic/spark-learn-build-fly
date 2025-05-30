@@ -5,9 +5,9 @@ import { Button } from "@/components/ui/button";
 const HeroSection = () => {
   const stats = [
     { number: "10,000+", label: "Students Trained" },
-    { number: "500+", label: "Schools Partnered" },
-    { number: "50+", label: "Expert Instructors" },
-    { number: "95%", label: "Success Rate" }
+    { number: "50+", label: "Schools Partnered" },
+    { number: "20+", label: "Expert Instructors" },
+    { number: "97%", label: "Success Rate" }
   ];
 
   return (
@@ -34,20 +34,26 @@ const HeroSection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-            <Button 
+            <Button onClick={() => {
+              const programsSection = document.getElementById("programs");
+              if (programsSection) {
+                programsSection.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+              // variant="primary"
               size="lg" 
               className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-10 py-6 rounded-2xl text-lg font-bold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
             >
               Start Learning Today <ArrowRight className="ml-3 h-6 w-6" />
             </Button>
             
-            <Button 
+            {/* <Button 
               variant="outline" 
               size="lg"
               className="border-2 border-gray-300 hover:border-blue-500 hover:bg-blue-50 px-10 py-6 rounded-2xl text-lg font-bold transition-all duration-300"
             >
               <Play className="mr-3 h-6 w-6" /> Watch Demo
-            </Button>
+            </Button> */}
           </div>
 
           {/* Stats */}

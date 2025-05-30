@@ -13,9 +13,9 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
       <Navigation />
       <HeroSection />
+      <FeaturesSection />
       <ProgramsSection />
       <ProductsSection />
-      <FeaturesSection />
       <TestimonialsSection />
       <CTASection />
       <Footer />

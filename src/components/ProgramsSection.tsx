@@ -14,7 +14,7 @@ const ProgramsSection = () => {
       icon: <Settings className="h-10 w-10" />,
       color: "from-blue-600 to-cyan-500",
       features: ["Visual Programming", "Robot Building", "AI Fundamentals", "Critical Thinking"],
-      price: "Starting at ₹5,999"
+      // price: "Starting at ₹5,999"
     },
     {
       title: "STEM Learning Kits",
@@ -22,7 +22,7 @@ const ProgramsSection = () => {
       icon: <BookOpen className="h-10 w-10" />,
       color: "from-emerald-500 to-teal-600",
       features: ["Age-Appropriate Kits", "Project Guides", "Safe Components", "Skill Progression"],
-      price: "Starting at ₹2,499"
+      // price: "Starting at ₹2,499"
     },
     {
       title: "Drone Academy",
@@ -30,7 +30,7 @@ const ProgramsSection = () => {
       icon: <Plane className="h-10 w-10" />,
       color: "from-orange-500 to-red-500",
       features: ["Flight Training", "Build Workshops", "Safety Certification", "Competition Prep"],
-      price: "Starting at ₹8,999"
+      // price: "Starting at ₹8,999"
     }
   ];
 
@@ -82,13 +82,13 @@ const ProgramsSection = () => {
                 </ul>
                 
                 <div className="mb-6">
-                  <span className="text-2xl font-bold text-gray-800">{program.price}</span>
+                  {/* <span className="text-2xl font-bold text-gray-800">{program.price}</span> */}
                 </div>
                 
                 <Button 
                   className={`w-full bg-gradient-to-r ${program.color} hover:opacity-90 text-white font-bold rounded-xl py-3 transition-all duration-300 shadow-lg hover:shadow-xl`}
                 >
-                  Learn More <ArrowRight className="ml-2 h-5 w-5" />
+                Learn More<ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </CardContent>
             </Card>

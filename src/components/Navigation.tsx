@@ -25,9 +25,14 @@ const Navigation = () => {
             <Link to="/gallery" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">Gallery</Link>
             <a href="/#about" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">About</a>
             <a href="/#testimonials" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">Reviews</a>
-            <a href="/#contact" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">Contact</a>
-            <Button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600">
-              Get Started
+            {/* <a href="/#contact" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">Contact</a> */}
+            <Button onClick={() => {
+              const contactSection = document.getElementById("contact");
+              if (contactSection) {
+                contactSection.scrollIntoView({ behavior: "smooth" });
+              }
+            }} className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600">
+              Contact Us
             </Button>
           </div>
           {/* Hamburger Menu for Mobile */}

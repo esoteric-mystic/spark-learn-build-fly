@@ -10,74 +10,74 @@ const ProductsSection = () => {
       id: 1,
       name: "AI Robotics Starter Kit",
       description: "Complete beginner-friendly kit with sensors, motors, and programmable controller. Perfect for students aged 8-14.",
-      price: "₹4,999",
-      originalPrice: "₹6,999",
+      // price: "₹4,999",
+      // originalPrice: "₹6,999",
       image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=300&fit=crop",
       rating: 4.8,
       reviews: 156,
       features: ["Drag & Drop Programming", "10+ Projects Included", "Safety Certified", "Online Tutorial Access"],
-      badge: "Best Seller"
+      badge: "New"
     },
     {
       id: 2,
       name: "Advanced Drone Building Kit",
       description: "Professional-grade drone assembly kit with HD camera, GPS navigation, and autonomous flight capabilities.",
-      price: "₹12,999",
-      originalPrice: "₹15,999",
+      // price: "₹12,999",
+      // originalPrice: "₹15,999",
       image: "https://images.unsplash.com/photo-1487887235947-a955ef187fcc?w=400&h=300&fit=crop",
       rating: 4.9,
       reviews: 89,
       features: ["HD Camera Included", "GPS Navigation", "Flight Controller", "Professional Assembly"],
-      badge: "Premium"
+      badge: "New"
     },
     {
       id: 3,
       name: "IoT Smart Home Kit",
       description: "Learn Internet of Things with this comprehensive kit featuring smart sensors, WiFi modules, and mobile app control.",
-      price: "₹3,499",
-      originalPrice: "₹4,999",
+      // price: "₹3,499",
+      // originalPrice: "₹4,999",
       image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop",
       rating: 4.7,
       reviews: 203,
       features: ["WiFi Connectivity", "Mobile App Control", "Multiple Sensors", "Cloud Integration"],
       badge: "New"
     },
-    {
-      id: 4,
-      name: "AI Programming Course",
-      description: "Comprehensive online course covering machine learning basics, neural networks, and practical AI applications.",
-      price: "₹2,999",
-      originalPrice: "₹4,499",
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&h=300&fit=crop",
-      rating: 4.9,
-      reviews: 324,
-      features: ["40+ Video Lessons", "Hands-on Projects", "Certificate Included", "Lifetime Access"],
-      badge: "Popular"
-    },
-    {
-      id: 5,
-      name: "Robotics Competition Kit",
-      description: "Professional robotics kit designed for competitions with high-precision sensors and advanced programming capabilities.",
-      price: "₹18,999",
-      originalPrice: "₹22,999",
-      image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=400&h=300&fit=crop",
-      rating: 5.0,
-      reviews: 67,
-      features: ["Competition Ready", "Advanced Sensors", "Metal Chassis", "Programming IDE"],
-      badge: "Pro"
-    },
-    {
-      id: 6,
-      name: "STEM Learning Bundle",
-      description: "Complete STEM education package with physics experiments, chemistry kits, and mathematical modeling tools.",
-      price: "₹5,999",
-      originalPrice: "₹8,999",
-      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=300&fit=crop",
-      rating: 4.6,
-      reviews: 145,
-      features: ["3 Subject Areas", "Experiment Guides", "Safety Equipment", "Teacher Resources"],
-      badge: "Bundle"
-    }
+    // {
+    //   id: 4,
+    //   name: "AI Programming Course",
+    //   description: "Comprehensive online course covering machine learning basics, neural networks, and practical AI applications.",
+    //   // price: "₹2,999",
+    //   // originalPrice: "₹4,499",
+    //   image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&h=300&fit=crop",
+    //   rating: 4.9,
+    //   reviews: 324,
+    //   features: ["40+ Video Lessons", "Hands-on Projects", "Certificate Included", "Lifetime Access"],
+    //   badge: "Popular"
+    // },
+    // {
+    //   id: 5,
+    //   name: "Robotics Competition Kit",
+    //   description: "Professional robotics kit designed for competitions with high-precision sensors and advanced programming capabilities.",
+    //   // price: "₹18,999",
+    //   // originalPrice: "₹22,999",
+    //   image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=400&h=300&fit=crop",
+    //   rating: 5.0,
+    //   reviews: 67,
+    //   features: ["Competition Ready", "Advanced Sensors", "Metal Chassis", "Programming IDE"],
+    //   badge: "Pro"
+    // },
+    // {
+    //   id: 6,
+    //   name: "STEM Learning Bundle",
+    //   description: "Complete STEM education package with physics experiments, chemistry kits, and mathematical modeling tools.",
+    //   // price: "₹5,999",
+    //   // originalPrice: "₹8,999",
+    //   image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=300&fit=crop",
+    //   rating: 4.6,
+    //   reviews: 145,
+    //   features: ["3 Subject Areas", "Experiment Guides", "Safety Equipment", "Teacher Resources"],
+    //   badge: "Bundle"
+    // }
   ];
 
   const renderStars = (rating: number) => {
@@ -152,8 +152,8 @@ const ProductsSection = () => {
 
                 <div className="flex items-center justify-between mb-6">
                   <div>
-                    <span className="text-2xl font-bold text-gray-800">{product.price}</span>
-                    <span className="text-sm text-gray-500 line-through ml-2">{product.originalPrice}</span>
+                    {/* <span className="text-2xl font-bold text-gray-800">{product.price}</span> */}
+                    {/* <span className="text-sm text-gray-500 line-through ml-2">{product.originalPrice}</span> */}
                   </div>
                 </div>
 
@@ -161,30 +161,30 @@ const ProductsSection = () => {
                   <Button 
                     className="flex-1 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
                   >
-                    <ShoppingCart className="w-4 h-4 mr-2" />
-                    Add to Cart
+                    {/* <ShoppingCart className="w-4 h-4 mr-2" /> */}
+                    Learn More<ArrowRight className="w-4 h-4" />
                   </Button>
                   
-                  <Button 
+                  {/* <Button 
                     variant="outline" 
                     className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 rounded-xl font-medium transition-all duration-300"
                   >
-                    <ArrowRight className="w-4 h-4" />
-                  </Button>
+                    
+                  </Button> */}
                 </div>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        <div className="text-center mt-16">
+        {/* <div className="text-center mt-16">
           <Button 
             size="lg"
             className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 px-12 py-6 rounded-2xl text-lg font-bold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
           >
             View All Products <ArrowRight className="ml-3 h-6 w-6" />
           </Button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -30,7 +30,7 @@ const FeaturesSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-20">
           <h2 className="text-5xl md:text-6xl font-black text-gray-800 mb-6">
-            Why Choose CogniBot Robo?
+            Why Choose CogniBot?
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             We combine cutting-edge curriculum with proven teaching methods to deliver 

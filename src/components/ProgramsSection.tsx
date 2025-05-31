@@ -3,18 +3,19 @@ import { useState } from "react";
 import { ArrowRight, Settings, BookOpen, Plane, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { usePrograms } from "@/hooks/useData";
 
 const ProgramsSection = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const { data: programs, isLoading } = usePrograms();
 
-  const programs = [
+  const defaultPrograms = [
     {
       title: "AI & Robotics Education",
       description: "Comprehensive AI and robotics curriculum designed for young minds. From basic programming to advanced robotics, we make complex concepts accessible and fun.",
       icon: <Settings className="h-10 w-10" />,
       color: "from-blue-600 to-cyan-500",
       features: ["Visual Programming", "Robot Building", "AI Fundamentals", "Critical Thinking"],
-      // price: "Starting at ₹5,999"
     },
     {
       title: "STEM Learning Kits",
@@ -22,7 +23,6 @@ const ProgramsSection = () => {
       icon: <BookOpen className="h-10 w-10" />,
       color: "from-emerald-500 to-teal-600",
       features: ["Age-Appropriate Kits", "Project Guides", "Safe Components", "Skill Progression"],
-      // price: "Starting at ₹2,499"
     },
     {
       title: "Drone Academy",
@@ -30,9 +30,32 @@ const ProgramsSection = () => {
       icon: <Plane className="h-10 w-10" />,
       color: "from-orange-500 to-red-500",
       features: ["Flight Training", "Build Workshops", "Safety Certification", "Competition Prep"],
-      // price: "Starting at ₹8,999"
     }
   ];
+
+  const displayPrograms = programs && programs.length > 0 ? 
+    programs.map((program, index) => ({
+      title: program.title,
+      description: program.description || "",
+      icon: defaultPrograms[index % defaultPrograms.length]?.icon || <Settings className="h-10 w-10" />,
+      color: defaultPrograms[index % defaultPrograms.length]?.color || "from-blue-600 to-cyan-500",
+      features: program.features || [],
+      duration: program.duration,
+      age_group: program.age_group,
+      price: program.price,
+    })) : defaultPrograms;
+
+  if (isLoading) {
+    return (
+      <section id="programs" className="py-24 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600 mx-auto"></div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="programs" className="py-24 bg-white">
@@ -48,7 +71,7 @@ const ProgramsSection = () => {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
-          {programs.map((program, index) => (
+          {displayPrograms.map((program, index) => (
             <Card 
               key={index}
               className={`group relative overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 cursor-pointer bg-white ${
@@ -81,14 +104,24 @@ const ProgramsSection = () => {
                   ))}
                 </ul>
                 
-                <div className="mb-6">
-                  {/* <span className="text-2xl font-bold text-gray-800">{program.price}</span> */}
-                </div>
+                {(program.duration || program.age_group || program.price) && (
+                  <div className="mb-6 space-y-2">
+                    {program.duration && (
+                      <div className="text-sm text-gray-600">Duration: {program.duration}</div>
+                    )}
+                    {program.age_group && (
+                      <div className="text-sm text-gray-600">Age Group: {program.age_group}</div>
+                    )}
+                    {program.price && (
+                      <div className="text-lg font-bold text-gray-800">${program.price}</div>
+                    )}
+                  </div>
+                )}
                 
                 <Button 
                   className={`w-full bg-gradient-to-r ${program.color} hover:opacity-90 text-white font-bold rounded-xl py-3 transition-all duration-300 shadow-lg hover:shadow-xl`}
                 >
-                Learn More<ArrowRight className="ml-2 h-5 w-5" />
+                  Learn More<ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </CardContent>
             </Card>

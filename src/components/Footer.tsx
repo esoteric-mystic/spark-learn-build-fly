@@ -1,8 +1,23 @@
 
 import { useAuth } from "@/hooks/useAuth";
+import { Link, useLocation } from "react-router-dom";
 
 const Footer = () => {
   const { isAdmin } = useAuth();
+  const location = useLocation();
+
+  const scrollToSection = (sectionId: string) => {
+    if (location.pathname !== '/') {
+      // If not on home page, navigate to home first then scroll
+      window.location.href = `/#${sectionId}`;
+      return;
+    }
+    
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <footer className="bg-gray-900 text-white py-12">
@@ -21,10 +36,26 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Programs</h4>
             <ul className="space-y-2 text-gray-300">
-              <li><a href="#programs" className="hover:text-blue-400 transition-colors">AI & Robotics</a></li>
-              <li><a href="#programs" className="hover:text-blue-400 transition-colors">STEM Kits</a></li>
-              <li><a href="#programs" className="hover:text-blue-400 transition-colors">Drone Academy</a></li>
-              <li><a href="/school-program" className="hover:text-blue-400 transition-colors">School Programs</a></li>
+              <li>
+                <button onClick={() => scrollToSection('programs')} className="hover:text-blue-400 transition-colors">
+                  AI & Robotics
+                </button>
+              </li>
+              <li>
+                <button onClick={() => scrollToSection('programs')} className="hover:text-blue-400 transition-colors">
+                  STEM Kits
+                </button>
+              </li>
+              <li>
+                <button onClick={() => scrollToSection('programs')} className="hover:text-blue-400 transition-colors">
+                  Drone Academy
+                </button>
+              </li>
+              <li>
+                <Link to="/school-program" className="hover:text-blue-400 transition-colors">
+                  School Programs
+                </Link>
+              </li>
             </ul>
           </div>
           
@@ -36,7 +67,11 @@ const Footer = () => {
               <li><a href="#" className="hover:text-blue-400 transition-colors">Careers</a></li>
               <li><a href="#" className="hover:text-blue-400 transition-colors">Contact</a></li>
               {isAdmin && (
-                <li><a href="/admin" className="hover:text-blue-400 transition-colors">Admin Dashboard</a></li>
+                <li>
+                  <Link to="/admin" className="hover:text-blue-400 transition-colors">
+                    Admin Dashboard
+                  </Link>
+                </li>
               )}
             </ul>
           </div>

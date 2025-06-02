@@ -7,6 +7,9 @@ import { ProgramsAdmin } from "./admin/ProgramsAdmin";
 import { ProductsAdmin } from "./admin/ProductsAdmin";
 import { TestimonialsAdmin } from "./admin/TestimonialsAdmin";
 import { GalleryAdmin } from "./admin/GalleryAdmin";
+import { UsersAdmin } from "./admin/UsersAdmin";
+import { AnalyticsAdmin } from "./admin/AnalyticsAdmin";
+import { SettingsAdmin } from "./admin/SettingsAdmin";
 
 export const AdminDashboard = () => {
   const { isAdmin } = useAuth();
@@ -30,13 +33,20 @@ export const AdminDashboard = () => {
     <div className="container mx-auto px-4 py-24">
       <h1 className="text-4xl font-bold mb-8">Admin Dashboard</h1>
       
-      <Tabs defaultValue="programs" className="space-y-6">
-        <TabsList className="grid w-full grid-cols-4">
+      <Tabs defaultValue="analytics" className="space-y-6">
+        <TabsList className="grid w-full grid-cols-7">
+          <TabsTrigger value="analytics">Analytics</TabsTrigger>
           <TabsTrigger value="programs">Programs</TabsTrigger>
           <TabsTrigger value="products">Products</TabsTrigger>
           <TabsTrigger value="testimonials">Testimonials</TabsTrigger>
           <TabsTrigger value="gallery">Gallery</TabsTrigger>
+          <TabsTrigger value="users">Users</TabsTrigger>
+          <TabsTrigger value="settings">Settings</TabsTrigger>
         </TabsList>
+        
+        <TabsContent value="analytics">
+          <AnalyticsAdmin />
+        </TabsContent>
         
         <TabsContent value="programs">
           <ProgramsAdmin />
@@ -52,6 +62,14 @@ export const AdminDashboard = () => {
         
         <TabsContent value="gallery">
           <GalleryAdmin />
+        </TabsContent>
+        
+        <TabsContent value="users">
+          <UsersAdmin />
+        </TabsContent>
+        
+        <TabsContent value="settings">
+          <SettingsAdmin />
         </TabsContent>
       </Tabs>
     </div>

@@ -34,6 +34,16 @@
 
     --radius: 0.5rem;
 
+    /* Enhanced design system for programs section */
+    --primary-blue: 217.2 91.2% 59.8%;
+    --primary-blue-dark: 217.2 91.2% 45%;
+    --cyan-accent: 197 71% 73%;
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary-blue)), hsl(var(--cyan-accent)));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(220 13% 98%));
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary-blue) / 0.1);
+    --shadow-hover: 0 20px 40px -10px hsl(var(--primary-blue) / 0.2);
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
     --sidebar-background: 0 0% 98%;
 
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -87,6 +97,12 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Dark mode enhancements */
+    --gradient-primary-dark: linear-gradient(135deg, hsl(217.2 91.2% 59.8%), hsl(197 71% 60%));
+    --gradient-card-dark: linear-gradient(145deg, hsl(222.2 84% 4.9%), hsl(217.2 32.6% 17.5%));
+    --shadow-elegant-dark: 0 10px 30px -10px hsl(217.2 91.2% 59.8% / 0.3);
+    --shadow-hover-dark: 0 20px 40px -10px hsl(217.2 91.2% 59.8% / 0.4);
   }
 }
 

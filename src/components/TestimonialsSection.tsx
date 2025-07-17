@@ -1,12 +1,9 @@
 
 import { Star } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { useTestimonials } from "@/hooks/useData";
 
 const TestimonialsSection = () => {
-  const { data: testimonials, isLoading } = useTestimonials();
-
-  const defaultTestimonials = [
+  const testimonials = [
     {
       name: "Arjun Patel",
       position: "Student, Grade 8",
@@ -25,29 +22,7 @@ const TestimonialsSection = () => {
       content: "Learning to fly and repair drones was amazing. The course is well-structured and the instructors are supportive.",
       rating: 5
     }
-  ];
-
-  const displayTestimonials = testimonials && testimonials.length > 0 ? 
-    testimonials.map((testimonial) => ({
-      name: testimonial.name,
-      role: testimonial.position && testimonial.company 
-        ? `${testimonial.position} at ${testimonial.company}`
-        : testimonial.position || testimonial.company || "",
-      content: testimonial.content,
-      rating: testimonial.rating || 5,
-    })) : defaultTestimonials.map((t) => ({ ...t, role: t.position }));
-
-  if (isLoading) {
-    return (
-      <section id="testimonials" className="py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600 mx-auto"></div>
-          </div>
-        </div>
-      </section>
-    );
-  }
+  ].map((t) => ({ ...t, role: t.position }));
 
   return (
     <section id="testimonials" className="py-24 bg-white">
@@ -62,7 +37,7 @@ const TestimonialsSection = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {displayTestimonials.map((testimonial, index) => (
+          {testimonials.map((testimonial, index) => (
             <Card key={index} className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 p-8">
               <CardContent className="p-0">
                 <div className="flex gap-1 mb-4">

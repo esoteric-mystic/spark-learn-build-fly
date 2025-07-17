@@ -1,14 +1,11 @@
 
-import { ShoppingCart, Star, ArrowRight } from "lucide-react";
+import { Star, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { useProducts } from "@/hooks/useData";
 
 const ProductsSection = () => {
-  const { data: products, isLoading } = useProducts();
-
-  const defaultProducts = [
+  const products = [
     {
       id: 1,
       name: "AI Robotics Starter Kit",
@@ -41,20 +38,6 @@ const ProductsSection = () => {
     },
   ];
 
-  const displayProducts = products && products.length > 0 ? 
-    products.map((product) => ({
-      id: product.id,
-      name: product.name,
-      description: product.description || "",
-      image: product.image_url || "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=300&fit=crop",
-      rating: 4.8,
-      reviews: 156,
-      features: ["High Quality", "Educational", "Safe", "Fun"],
-      badge: product.in_stock ? "Available" : "Out of Stock",
-      price: product.price,
-      category: product.category,
-    })) : defaultProducts;
-
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (
       <Star 
@@ -64,17 +47,6 @@ const ProductsSection = () => {
     ));
   };
 
-  if (isLoading) {
-    return (
-      <section id="products" className="py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600 mx-auto"></div>
-          </div>
-        </div>
-      </section>
-    );
-  }
 
   return (
     <section id="products" className="py-24 bg-gray-50">
@@ -90,7 +62,7 @@ const ProductsSection = () => {
         </div>
 
         <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
-          {displayProducts.map((product) => (
+          {products.map((product) => (
             <Card 
               key={product.id} 
               className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 bg-white"
@@ -137,16 +109,6 @@ const ProductsSection = () => {
                   ))}
                 </ul>
 
-                <div className="flex items-center justify-between mb-6">
-                  <div>
-                    {product.price && (
-                      <span className="text-2xl font-bold text-gray-800">${product.price}</span>
-                    )}
-                    {product.category && (
-                      <div className="text-sm text-gray-500">{product.category}</div>
-                    )}
-                  </div>
-                </div>
 
                 <div className="flex gap-3">
                   <Button 

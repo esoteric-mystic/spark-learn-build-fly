@@ -1,9 +1,7 @@
 
-import { useAuth } from "@/hooks/useAuth";
 import { Link, useLocation } from "react-router-dom";
 
 const Footer = () => {
-  const { isAdmin } = useAuth();
   const location = useLocation();
 
   const scrollToSection = (sectionId: string) => {
@@ -66,13 +64,6 @@ const Footer = () => {
               <li><a href="#" className="hover:text-blue-400 transition-colors">Our Team</a></li>
               <li><a href="#" className="hover:text-blue-400 transition-colors">Careers</a></li>
               <li><a href="#" className="hover:text-blue-400 transition-colors">Contact</a></li>
-              {isAdmin && (
-                <li>
-                  <Link to="/admin" className="hover:text-blue-400 transition-colors">
-                    Admin Dashboard
-                  </Link>
-                </li>
-              )}
             </ul>
           </div>
           

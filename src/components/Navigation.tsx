@@ -1,30 +1,12 @@
 
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { AuthModal } from "./AuthModal";
-import { useAuth } from "@/hooks/useAuth";
 import { Link, useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [showAuthModal, setShowAuthModal] = useState(false);
-  const [authMode, setAuthMode] = useState<"signin" | "signup">("signin");
-  const { user, signOut } = useAuth();
   const location = useLocation();
 
-  const handleAuthClick = (mode: "signin" | "signup") => {
-    setAuthMode(mode);
-    setShowAuthModal(true);
-  };
-
-  const handleSignOut = async () => {
-    try {
-      await signOut();
-    } catch (error) {
-      console.error("Error signing out:", error);
-    }
-  };
 
   const scrollToSection = (sectionId: string) => {
     if (location.pathname !== '/') {
@@ -70,25 +52,6 @@ const Navigation = () => {
               </Link>
             </div>
 
-            <div className="hidden md:flex items-center space-x-4">
-              {user ? (
-                <div className="flex items-center space-x-4">
-                  <span className="text-sm text-gray-600">Welcome, {user.email}</span>
-                  <Button variant="outline" onClick={handleSignOut}>
-                    Sign Out
-                  </Button>
-                </div>
-              ) : (
-                <>
-                  <Button variant="outline" onClick={() => handleAuthClick("signin")}>
-                    Sign In
-                  </Button>
-                  <Button onClick={() => handleAuthClick("signup")}>
-                    Sign Up
-                  </Button>
-                </>
-              )}
-            </div>
 
             <button
               className="md:hidden"
@@ -119,35 +82,12 @@ const Navigation = () => {
                 <Link to="/school-program" onClick={() => setIsOpen(false)} className="text-gray-700 hover:text-blue-600 transition-colors">
                   School Program
                 </Link>
-                
-                {user ? (
-                  <div className="pt-4 border-t border-gray-100">
-                    <p className="text-sm text-gray-600 mb-2">Welcome, {user.email}</p>
-                    <Button variant="outline" onClick={handleSignOut} className="w-full">
-                      Sign Out
-                    </Button>
-                  </div>
-                ) : (
-                  <div className="pt-4 border-t border-gray-100 space-y-2">
-                    <Button variant="outline" onClick={() => handleAuthClick("signin")} className="w-full">
-                      Sign In
-                    </Button>
-                    <Button onClick={() => handleAuthClick("signup")} className="w-full">
-                      Sign Up
-                    </Button>
-                  </div>
-                )}
               </div>
             </div>
           )}
         </div>
       </nav>
 
-      <AuthModal 
-        isOpen={showAuthModal} 
-        onClose={() => setShowAuthModal(false)} 
-        initialMode={authMode}
-      />
     </>
   );
 };
